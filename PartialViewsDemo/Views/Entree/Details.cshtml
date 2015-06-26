@@ -1,0 +1,12 @@
+﻿@model PartialViewsDemo.Models.Entree
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@Html.ActionLink("<< Back to Index", "Index")
+
+<h2>@Model.Name</h2>
+
+
+<p>Ingredients: @Html.Partial("Ingredients", Model.Ingredients)</p>

@@ -1,0 +1,38 @@
+﻿@model PartialViewsDemo.ViewModels.Entree.EntreeIndexVM
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>All Entrees</h2>
+
+@if(TempData["ErrorMessage"] != null)
+{
+    <span>@TempData["ErrorMessage"]</span>
+}
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Ingredients
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var entree in Model.Entrees)
+        {
+            <tr>
+                <td>
+                    @entree.Name
+                </td>
+                <td>
+                    @Html.Partial("Ingredients", entree.Ingredients)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
