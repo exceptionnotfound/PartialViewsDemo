@@ -9,4 +9,5 @@
 <h2>@Model.Name</h2>
 
 
-<p>Ingredients: @Html.Partial("Ingredients", Model.Ingredients)</p>
+@*Render using RenderPartial()*@
+<p>Ingredients: @{ Html.RenderPartial("Ingredients", Model.Ingredients); }</p>

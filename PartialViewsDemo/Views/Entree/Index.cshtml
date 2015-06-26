@@ -1,4 +1,4 @@
-﻿@model PartialViewsDemo.ViewModels.Entree.EntreeIndexVM
+﻿@model List<PartialViewsDemo.Models.Entree>
 
 @{
     ViewBag.Title = "Index";
@@ -23,13 +23,14 @@
         </tr>
     </thead>
     <tbody>
-        @foreach(var entree in Model.Entrees)
+        @foreach(var entree in Model)
         {
             <tr>
                 <td>
-                    @entree.Name
+                    @Html.ActionLink(entree.Name, "Details", new { id = entree.ID })
                 </td>
                 <td>
+                    @*Render using Partial()*@
                     @Html.Partial("Ingredients", entree.Ingredients)
                 </td>
             </tr>
